@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 13 2016 г., 16:25
+-- Время создания: Фев 13 2016 г., 23:39
 -- Версия сервера: 5.6.26
 -- Версия PHP: 5.6.12
 
@@ -48,6 +48,31 @@ INSERT INTO `activations` (`id`, `user_id`, `code`, `completed`, `completed_at`,
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `administrators`
+--
+
+CREATE TABLE IF NOT EXISTS `administrators` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(190) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `administrators_username_unique` (`username`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `administrators`
+--
+
+INSERT INTO `administrators` (`id`, `username`, `password`, `name`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin', '$2y$10$cBXRvLj5HpeYblBGavx9JONIDamJJCJR0cStliiyuT8IEq9j636Cy', 'SleepingOwl Administrator', NULL, '2016-02-13 15:10:02', '2016-02-13 15:10:02');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `migrations`
 --
 
@@ -61,7 +86,8 @@ CREATE TABLE IF NOT EXISTS `migrations` (
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
-('2014_07_02_230147_migration_cartalyst_sentinel', 1);
+('2014_07_02_230147_migration_cartalyst_sentinel', 1),
+('2014_10_12_104748_create_administrators_table', 2);
 
 -- --------------------------------------------------------
 
@@ -77,7 +103,15 @@ CREATE TABLE IF NOT EXISTS `persistences` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `persistences_code_unique` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `persistences`
+--
+
+INSERT INTO `persistences` (`id`, `user_id`, `code`, `created_at`, `updated_at`) VALUES
+(1, 1, 'cXfXGHtd4OPz4CbMA7DHcRiCRMqKhY2x', '2016-02-13 15:12:34', '2016-02-13 15:12:34'),
+(2, 1, 'BxG6LY4k1ASoX86xevcCKGLMMdBhSSeQ', '2016-02-13 15:30:53', '2016-02-13 15:30:53');
 
 -- --------------------------------------------------------
 
@@ -193,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `permissions`, `last_login`, `first_name`, `last_name`, `created_at`, `updated_at`) VALUES
-(1, 'admin@admin.com', '$2y$10$UZa5xcAgwOHyuHlydHdUCe.sRvYMquRporTDtgRdMSroljg6dQo0a', NULL, NULL, NULL, NULL, '2016-02-13 06:59:20', '2016-02-13 06:59:20'),
+(1, 'admin@admin.com', '$2y$10$UZa5xcAgwOHyuHlydHdUCe.sRvYMquRporTDtgRdMSroljg6dQo0a', NULL, '2016-02-13 15:30:53', NULL, NULL, '2016-02-13 06:59:20', '2016-02-13 15:30:53'),
 (2, 'kir-sl@ya.ru', '$2y$10$kfvlMfqJtkPPp4MPtI2GQuKySCzrpKe5E.0F9yq1ObAEpzMN.Ac0G', NULL, NULL, NULL, NULL, '2016-02-13 08:06:26', '2016-02-13 08:06:26');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

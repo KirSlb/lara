@@ -27,6 +27,7 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
+
     /**
      * Route for auth system
      */
