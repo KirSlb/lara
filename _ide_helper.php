@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.2.15 on 2016-02-13.
+ * Generated for Laravel 5.2.15 on 2016-02-14.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11777,6 +11777,219 @@ namespace {
         public static function componentCall($method, $parameters){
             return \Collective\Html\HtmlBuilder::componentCall($method, $parameters);
         }
+        
+    }
+
+
+    class Admin extends \SleepingOwl\Admin\Admin{
+        
+    }
+
+
+    class AdminAuth extends \SleepingOwl\AdminAuth\Facades\AdminAuth{
+        
+        /**
+         * Create an instance of the Eloquent driver.
+         *
+         * @return \Illuminate\Auth\Guard 
+         * @static 
+         */
+        public static function createEloquentDriver(){
+            return \SleepingOwl\AdminAuth\AdminAuthManager::createEloquentDriver();
+        }
+        
+        /**
+         * Get the default authentication driver name.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultDriver(){
+            return \SleepingOwl\AdminAuth\AdminAuthManager::getDefaultDriver();
+        }
+        
+        /**
+         * Attempt to get the guard from the local cache.
+         *
+         * @param string $name
+         * @return \Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard 
+         * @static 
+         */
+        public static function guard($name = null){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::guard($name);
+        }
+        
+        /**
+         * Create a session based authentication guard.
+         *
+         * @param string $name
+         * @param array $config
+         * @return \Illuminate\Auth\SessionGuard 
+         * @static 
+         */
+        public static function createSessionDriver($name, $config){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::createSessionDriver($name, $config);
+        }
+        
+        /**
+         * Create a token based authentication guard.
+         *
+         * @param string $name
+         * @param array $config
+         * @return \Illuminate\Auth\TokenGuard 
+         * @static 
+         */
+        public static function createTokenDriver($name, $config){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::createTokenDriver($name, $config);
+        }
+        
+        /**
+         * Set the default guard driver the factory should serve.
+         *
+         * @param string $name
+         * @return void 
+         * @static 
+         */
+        public static function shouldUse($name){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            \SleepingOwl\AdminAuth\AdminAuthManager::shouldUse($name);
+        }
+        
+        /**
+         * Set the default authentication driver name.
+         *
+         * @param string $name
+         * @return void 
+         * @static 
+         */
+        public static function setDefaultDriver($name){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            \SleepingOwl\AdminAuth\AdminAuthManager::setDefaultDriver($name);
+        }
+        
+        /**
+         * Register a new callback based request guard.
+         *
+         * @param string $driver
+         * @param callable $callback
+         * @return $this 
+         * @static 
+         */
+        public static function viaRequest($driver, $callback){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::viaRequest($driver, $callback);
+        }
+        
+        /**
+         * Get the user resolver callback.
+         *
+         * @return \Closure 
+         * @static 
+         */
+        public static function userResolver(){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::userResolver();
+        }
+        
+        /**
+         * Set the callback to be used to resolve users.
+         *
+         * @param \Closure $userResolver
+         * @return $this 
+         * @static 
+         */
+        public static function resolveUsersUsing($userResolver){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::resolveUsersUsing($userResolver);
+        }
+        
+        /**
+         * Register a custom driver creator Closure.
+         *
+         * @param string $driver
+         * @param \Closure $callback
+         * @return $this 
+         * @static 
+         */
+        public static function extend($driver, $callback){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::extend($driver, $callback);
+        }
+        
+        /**
+         * Register a custom provider creator Closure.
+         *
+         * @param string $name
+         * @param \Closure $callback
+         * @return $this 
+         * @static 
+         */
+        public static function provider($name, $callback){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::provider($name, $callback);
+        }
+        
+        /**
+         * Create the user provider implementation for the driver.
+         *
+         * @param string $provider
+         * @return \Illuminate\Contracts\Auth\UserProvider 
+         * @throws \InvalidArgumentException
+         * @static 
+         */
+        public static function createUserProvider($provider){
+            //Method inherited from \Illuminate\Auth\AuthManager            
+            return \SleepingOwl\AdminAuth\AdminAuthManager::createUserProvider($provider);
+        }
+        
+    }
+
+
+    class Column extends \SleepingOwl\Admin\Columns\Column{
+        
+    }
+
+
+    class ColumnFilter extends \SleepingOwl\Admin\ColumnFilters\ColumnFilter{
+        
+    }
+
+
+    class Filter extends \SleepingOwl\Admin\Filter\Filter{
+        
+    }
+
+
+    class AdminDisplay extends \SleepingOwl\Admin\Display\AdminDisplay{
+        
+    }
+
+
+    class AdminForm extends \SleepingOwl\Admin\Form\AdminForm{
+        
+    }
+
+
+    class AdminTemplate extends \SleepingOwl\Admin\Templates\Facade\AdminTemplate{
+        
+        /**
+         * Get full view name
+         *
+         * @param string $view
+         * @return string 
+         * @static 
+         */
+        public static function view($view){
+            return \SleepingOwl\Admin\Templates\TemplateDefault::view($view);
+        }
+        
+    }
+
+
+    class FormItem extends \SleepingOwl\Admin\FormItems\FormItem{
         
     }
 
